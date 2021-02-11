@@ -7,6 +7,8 @@ import android.widget.Spinner
 import android.widget.TextView
 
 class FindBeerActivity : Activity() {
+    val beerExpert= BeerExpert()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_find_beer)
@@ -16,6 +18,6 @@ class FindBeerActivity : Activity() {
         var brands: TextView = findViewById(R.id.brands)
         var color: Spinner = findViewById(R.id.color)
         var beerType: String = color.selectedItem.toString()
-        brands.text = beerType
+        brands.text = beerExpert.getBrands(beerType).toString()
     }
 }
