@@ -18,6 +18,6 @@ class FindBeerActivity : Activity() {
         var brands: TextView = findViewById(R.id.brands)
         var color: Spinner = findViewById(R.id.color)
         var beerType: String = color.selectedItem.toString()
-        brands.text = beerExpert.getBrands(beerType).toString()
+        brands.text = beerExpert.getBrands(beerType).joinToString("\n")
     }
 }
