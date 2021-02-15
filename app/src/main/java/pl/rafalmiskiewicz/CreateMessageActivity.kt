@@ -1,6 +1,7 @@
 package pl.rafalmiskiewicz
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 
@@ -11,6 +12,7 @@ class CreateMessageActivity : Activity() {
     }
 
     fun onSendMessage(view: View){
-
+        var intentt = Intent(this,ReceiveMessageActivity::class.java)
+                startActivity(intentt)
     }
 }
