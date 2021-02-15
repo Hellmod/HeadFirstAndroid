@@ -13,10 +13,11 @@ class CreateMessageActivity : Activity() {
     }
 
     fun onSendMessage(view: View) {
-        val intent = Intent(this, ReceiveMessageActivity::class.java)
+        val intent = Intent(Intent.ACTION_SEND)
         val textView: TextView = findViewById(R.id.message)
         val messageText: String = textView.text.toString()
-        intent.putExtra(ReceiveMessageActivity.EXTRA_MESSAGE, messageText)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, messageText)
         startActivity(intent)
     }
 }
