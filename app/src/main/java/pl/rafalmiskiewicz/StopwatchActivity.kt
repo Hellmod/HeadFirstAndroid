@@ -15,6 +15,14 @@ class StopwatchActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stopwatch)
+
+        savedInstanceState?.getInt("seconds")?.let {
+            seconds = it
+        }
+        savedInstanceState?.getBoolean("running")?.let {
+            running = it
+        }
+
         runTimer()
     }
 
@@ -48,5 +56,11 @@ class StopwatchActivity : Activity() {
                 handler.postDelayed(this,1000)
             }
         })
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("seconds",seconds)
+        outState.putBoolean("running",running)
     }
 }
