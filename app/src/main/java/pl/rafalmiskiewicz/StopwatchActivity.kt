@@ -69,14 +69,14 @@ class StopwatchActivity : Activity() {
         outState.putBoolean("wasRunning",wasRunning)
     }
 
-    override fun onStop() {
-        super.onStop()
+    override fun onPause() {
+        super.onPause()
         wasRunning=running
         running=false
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onResume() {
+        super.onResume()
         running=wasRunning
     }
 
