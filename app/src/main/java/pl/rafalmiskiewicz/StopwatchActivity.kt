@@ -11,6 +11,7 @@ import androidx.core.os.HandlerCompat
 class StopwatchActivity : Activity() {
     var seconds:Int = 0
     var running = false
+    var wasRunning = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +22,9 @@ class StopwatchActivity : Activity() {
         }
         savedInstanceState?.getBoolean("running")?.let {
             running = it
+        }
+        savedInstanceState?.getBoolean("wasRunning")?.let {
+            wasRunning = it
         }
 
         runTimer()
@@ -62,5 +66,18 @@ class StopwatchActivity : Activity() {
         super.onSaveInstanceState(outState)
         outState.putInt("seconds",seconds)
         outState.putBoolean("running",running)
+        outState.putBoolean("wasRunning",wasRunning)
     }
+
+    override fun onStop() {
+        super.onStop()
+        wasRunning=running
+        running=false
+    }
+
+    override fun onStart() {
+        super.onStart()
+        running=wasRunning
+    }
+
 }
