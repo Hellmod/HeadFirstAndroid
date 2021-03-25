@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">HeadFirstAndroid</string>
+    <string name="to_label">Do:</string>
+    <string name="email_hint">Podaj adres e-mail</string>
+    <string name="suject_hint">Temat</string>
+    <string name="message_hint">Treść wiadomości</string>
+    <string name="send_button">Wyślij</string>
+
 </resources>
